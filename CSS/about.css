@@ -1,0 +1,128 @@
+.mission-vision {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 120px 10%;
+    background: var(--bg-section);
+}
+
+.about-decor {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgba(31, 78, 121, 0.08);
+    border-radius: 50%;
+    top: -120px;
+    left: -120px;
+    z-index: 0;
+    animation: slowFloat 7s ease-in-out infinite;
+}
+
+.about-decor::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(247, 147, 30, 0.08);
+    border-radius: 50%;
+    bottom: -130px;
+    right: -600px;
+}
+
+@keyframes slowFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(5px); }
+}
+
+.mission-vision .box {
+    position: relative;
+    z-index: 1;
+}
+
+.box-mission,
+.box-vision {
+    width: 45%;
+    background: #ffffff;
+    text-align: center;
+    padding: 80px 40px 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.icon-about {
+    width: 90px;
+    height: 90px;
+    background: #8b0000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-i {
+    color: #ffffff;
+    font-size: 32px;
+}
+
+.box h2 {
+    color: #8b0000;
+    font-size: 32px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.box p {
+    color: #999999;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .mission-vision {
+        flex-direction: column;
+        padding: 40px 5%;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .box-mission,
+    .box-vision {
+        width: 100%;
+        max-width: 500px;
+        padding: 60px 20px 40px;
+        box-sizing: border-box;
+    }
+
+    .box-mission {
+        border-radius: 0 0 150px 0;
+    }
+
+  
+    .icon-about {
+        top: -35px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .about-i {
+        font-size: 28px;
+    }
+
+    .box h2 {
+        font-size: 28px;
+    }
+
+    .box p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}

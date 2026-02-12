@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextGen School</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="CSS/hero.css" />
+    <link rel="stylesheet" href="CSS/about.css" />
+    <link rel="stylesheet" href="CSS/upcoming.css" />
+    <link rel="stylesheet" href="CSS/galery.css" />
+    <link rel="stylesheet" href="CSS/testi.css" />
+    <link rel="stylesheet" href="CSS/facilities.css" />
+    <link rel="stylesheet" href="CSS/Experts.css" />
+    <link rel="stylesheet" href="CSS/contact.css" />
+    <link rel="stylesheet" href="CSS/footer.css" />
+    <link rel="stylesheet" href="CSS/loading.css" />
+  </head>
+
+  <body>
+    <div class="marquee-wrapper">
+      <div class="marquee" id="marquee">
+        <span id="marqueeText"></span>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">NextGen School</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Admissions</a></li>
+        <li><a href="#">Academics</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+      <button class="close-btn" id="closeBtn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Admissions</a>
+      <a href="#">Academics</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <!--navbar-->
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="imgs/home.mp4" type="video/mp4" mute />
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>Empowering Minds, Shaping Futures</h1>
+          <p>
+            Join NextGen School and give your child the best education with modern
+            facilities and expert faculty.
+          </p>
+
+          <button class="cta">
+            <span>Join now</span>
+            <svg width="15px" height="10px" viewBox="0 0 13 10">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="mission-vision">
+      <div class="about-decor"></div>
+
+      <!-- Mission Box -->
+      <div class="box box-mission">
+        <div class="icon-about">
+          <i class="fa-solid about-i fa-flag"></i>
+        </div>
+        <h2>Mission</h2>
+        <p>
+          Our mission is to develop principled, insightful leaders who can
+          transform organizations and the society we live in, through innovative
+          management education, research, and networking.
+        </p>
+      </div>
+
+      <!-- Vision Box -->
+      <div class="box-vision vision">
+        <div class="icon-about">
+          <i class="fa-solid about-i fa-binoculars"></i>
+        </div>
+        <h2>Vision</h2>
+        <p>
+          We aspire to be widely recognized as the leading center for management
+          & IT education and research, and the college of first choice among
+          students seeking higher education in management.
+        </p>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="container">
+        <!-- News -->
+        <div class="card">
+          <h3>News & Notices</h3>
+          <ul class="list" id="newsList"></ul>
+        </div>
+
+        <!-- Events -->
+        <div class="card">
+          <h3>Upcoming Events</h3>
+          <ul class="list" id="eventList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SVG Filters -->
+    <svg height="0" width="0">
+      <filter id="handDrawnNoise">
+        <feTurbulence result="noise" numOctaves="2" seed="1" />
+        <feDisplacementMap in2="noise" in="SourceGraphic" scale="1" />
+      </filter>
+      <filter id="handDrawnNoise2">
+        <feTurbulence result="noise" numOctaves="2" seed="2" />
+        <feDisplacementMap in2="noise" in="SourceGraphic" scale="1" />
+      </filter>
+    </svg>
+
+    <section class="flex-collage-gallery">
+      <h2>Our Work</h2>
+      <div class="flex-gallery">
+        <div class="flex-item">
+          <img
+            src="imgs/image.png"
+            alt="Project 1"
+            onclick="openLightbox(this)"
+          />
+        </div>
+        <div class="flex-item">
+          <img
+            src="imgs/image.png"
+            alt="Project 2"
+            onclick="openLightbox(this)"
+          />
+        </div>
+        <div class="flex-item">
+          <img
+            src="imgs/image.png"
+            alt="Project 3"
+            onclick="openLightbox(this)"
+          />
+        </div>
+        <div class="flex-item">
+          <img
+            src="imgs/image.png"
+            alt="Project 4"
+            onclick="openLightbox(this)"
+          />
+        </div>
+        <div class="flex-item">
+          <img
+            src="imgs/image.png"
+            alt="Project 5"
+            onclick="openLightbox(this)"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+      <span class="close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" />
+      <div class="caption" id="lightbox-caption"></div>
+    </div>
+
+    <section class="testimonials-section">
+      <h2>What Parents & Students Say</h2>
+      <div class="testimonial-cards-wrapper">
+        <div class="testimonial-box">
+          <p>
+            "NextGen School has transformed my child's learning experience. The
+            teachers are dedicated and the facilities are top-notch!"
+          </p>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="testimonial-author">
+            <img src="imgs/image.png" alt="Rita Sharma" />
+            <div>
+              <h4>Rita Sharma</h4>
+              <span>Parent</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-box">
+          <p>
+            "The interactive classes and hands-on activities make learning so
+            fun! Highly recommend NextGen School."
+          </p>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="testimonial-author">
+            <img src="imgs/image.png" alt="Samir Thapa" />
+            <div>
+              <h4>Samir Thapa</h4>
+              <span>Parent</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-box">
+          <p>
+            "Friendly teachers, amazing environment, and lots of extracurricular
+            opportunities. My child loves going to school!"
+          </p>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <div class="testimonial-author">
+            <img src="imgs/image.png" alt="Kiran Adhikari" />
+            <div>
+              <h4>Kiran Adhikari</h4>
+              <span>Student</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="our-faculty">
+      <h2>Meet Our Expert Faculty</h2>
+      <div class="faculty-slider">
+        <div class="faculty-wrapper">
+          <div class="rotating-card">
+            <img src="imgs/image.png" alt="Mr. Rajesh" />
+            <h4>Mr. Ngema theeng</h4>
+            <span>Math Teacher</span>
+          </div>
+          <div class="rotating-card">
+            <img src="imgs/image.png" alt="Ms. Sita" />
+            <h4>Ms. Sita Shrestha</h4>
+            <span>Science Teacher</span>
+          </div>
+          <div class="rotating-card">
+            <img src="imgs/image.png" alt="Mr. Anil" />
+            <h4>Mr. Anil Thapa</h4>
+            <span>English Teacher</span>
+          </div>
+          <div class="rotating-card">
+            <img src="imgs/image.png" alt="Ms. Maya" />
+            <h4>Ms. Maya Rai</h4>
+            <span>IT Teacher</span>
+          </div>
+          <div class="rotating-card">
+            <img src="imgs/image.png" alt="Ms. Maya" />
+            <h4>Ms. Maya Rai</h4>
+            <span>IT Teacher</span>
+          </div>
+          <div class="rotating-card">
+            <img src="imgs/image.png" alt="Ms. Maya" />
+            <h4>Ms. Maya Rai</h4>
+            <span>IT Teacher</span>
+          </div>
+        </div>
+      </div>
+      <div class="dots"></div>
+    </section>
+
+    <section class="location">
+      <!-- Decorative Background Shapes -->
+      <div class="location-bg-shape shape-left"></div>
+      <div class="location-bg-shape shape-right"></div>
+      <!-- Google Map Embed -->
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.898713099057!2d85.91158792589643!3d27.215426382810456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb8d007d7c30c9%3A0x2543c9f3087447f6!2sITM%20.HUB.PVT.%20LTD!5e0!3m2!1sen!2snp!4v1768117027440!5m2!1sen!2snp"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+      </div>
+
+      <!-- From Uiverse.io by gharsh11032000 -->
+      <div class="form-container">
+        <form class="form">
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="text" id="email" name="email" required="" />
+          </div>
+          <div class="form-group">
+            <label for="textarea">How Can We Help You?</label>
+            <textarea
+              name="textarea"
+              id="textarea"
+              rows="10"
+              cols="50"
+              required=""
+            >
+            </textarea>
+          </div>
+          <button class="form-submit-btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- About -->
+        <div class="footer-section about">
+          <h3>About NextGen School</h3>
+          <p>
+            NextGen School is committed to providing high-quality education with
+            modern facilities, experienced faculty, and a nurturing environment
+            for every student.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-section contact">
+          <h3>Contact Us</h3>
+          <p>123 School Street, Kathmandu, Nepal</p>
+        <p>Email: ngema.studio@gmail.com</p>
+          <p>Phone: +977 123456789</p>
+          <div class="socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 NextGen School. All Rights Reserved.
+      </div>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+      integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
