@@ -130,11 +130,9 @@ updateSlider();
 //             for animation 
 
 
-
-// for hero section animation
 gsap.registerPlugin(ScrollTrigger);
 
-// ===== Navbar links animation on load =====
+
 gsap.from(".navbar ul li", {
   opacity: 0,
   y: -20,
@@ -143,7 +141,7 @@ gsap.from(".navbar ul li", {
   ease: "power3.out"
 });
 
-// ===== Hamburger animation =====
+
 gsap.from("#hamburger span", {
   opacity: 0,
   x: -20,
@@ -152,7 +150,7 @@ gsap.from("#hamburger span", {
   ease: "power2.out"
 });
 
-// ===== Hero overlay fade + parallax =====
+
 gsap.from(".hero-overlay", {
   opacity: 0,
   y: 100,
@@ -160,7 +158,7 @@ gsap.from(".hero-overlay", {
   ease: "power2.out"
 });
 
-// ===== Hero text animation =====
+
 gsap.from(".hero-content h1", {
   opacity: 0,
   y: 50,
@@ -190,7 +188,7 @@ gsap.from(".hero-content p", {
   }
 });
 
-// ===== CTA button hover + scroll effect =====
+
 gsap.from(".cta", {
   opacity: 0,
   scale: 0.8,
@@ -211,7 +209,7 @@ document.querySelector(".cta").addEventListener("mouseleave", () => {
   gsap.to(".cta", { scale: 1, duration: 0.3, ease: "power2.out" });
 });
 
-// ===== Hero video parallax on scroll =====
+
 gsap.to(".hero-video", {
   y: -100,
   scale: 1.05,
@@ -225,7 +223,7 @@ gsap.to(".hero-video", {
 });
 
 
-//   mission vision animation
+
 gsap.from(".box-mission", {
   opacity: 0,
   y: 80,
@@ -241,10 +239,10 @@ gsap.from(".box-mission", {
   }
 });
 
-// Vision Box
+
 gsap.from(".box-vision", {
   opacity: 0,
-  y: 80,
+  x: 80,
   scale: 0.8,
   rotate: 10,
   duration: 1,
@@ -292,7 +290,7 @@ gsap.utils.toArray(".info-section .card").forEach((card, i) => {
     }
   });
 
-    gsap.from(card.querySelectorAll(".list li"), {
+  gsap.from(card.querySelectorAll(".list li"), {
     opacity: 0,
     y: 20,
     x: -10,
@@ -309,15 +307,15 @@ gsap.utils.toArray(".info-section .card").forEach((card, i) => {
 });
 
 
-    // galeryyyy
+// galeryyyy
 gsap.utils.toArray(".flex-item").forEach((item, i) => {
   gsap.from(item, {
     y: 100,
-    rotationY: 30, 
-    rotationX: 15, 
+    rotationY: 30,
+    rotationX: 15,
     scale: 0.8,
     opacity: 0,
-    transformPerspective: 600, 
+    transformPerspective: 600,
     duration: 1.5,
     ease: "power2.out",
     scrollTrigger: {
@@ -516,7 +514,9 @@ gsap.from(".footer-bottom", {
 
 
 
-//
+//  same  for this 
+const ADMIN_API = "http://localhost:5000";
+
 
 //marquee fetch backend
 
@@ -526,7 +526,7 @@ gsap.from(".footer-bottom", {
 
 async function loadMarqueeForUser() {
   try {
-    const res = await fetch(`${process.env.ADMIN_API}/api/marquee`);
+    const res = await fetch(`${ADMIN_API}/api/marquee`);
     const data = await res.json();
 
     if (!data.length) return;
@@ -550,7 +550,7 @@ loadMarqueeForUser();
 //
 async function loadNewsForUser() {
   try {
-    const res = await fetch(`${process.env.ADMIN_API}/api/news`);
+    const res = await fetch(`${ADMIN_API}/api/news`);
     const data = await res.json();
 
     const list = document.getElementById("newsList");
@@ -581,4 +581,36 @@ loadNewsForUser();
 //    events
 
 //
+
+// == events fetch backend
+//
+
+async function loadEventsForUser() {
+  try {
+    const res = await fetch(`${ADMIN_API}/api/events`);
+    const data = await res.json();
+
+    const list = document.getElementById("eventList");
+    list.innerHTML = "";
+
+    data.forEach(item => {
+      const li = document.createElement("li");
+
+      const date = new Date(item.date).toLocaleDateString();
+
+      li.innerHTML = `
+        <span>${item.title}</span>
+        <small>${date}</small>
+      `;
+
+      list.appendChild(li);
+    });
+
+  } catch (err) {
+    console.error("Failed to load events", err);
+  }
+}
+
+loadEventsForUser();
+
 
